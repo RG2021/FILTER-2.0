@@ -53,8 +53,8 @@ MarkupSafe==1.1.1
 matplotlib==3.2.0
 mistune==0.8.4
 mkl-fft
-mkl-random==1.1.0
-mkl-service==2.3.0
+mkl-random
+mkl-service
 more-itertools==8.2.0
 murmurhash==1.0.2
 nbconvert==5.6.1
