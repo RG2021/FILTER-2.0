@@ -54,7 +54,6 @@ matplotlib==3.2.0
 mistune==0.8.4
 mkl-fft
 mkl-random
-mkl-service==2.3.0
 more-itertools==8.2.0
 murmurhash==1.0.2
 nbconvert==5.6.1
