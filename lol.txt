@@ -22,7 +22,7 @@ cymem==2.0.3
 decorator==4.4.2
 defusedxml==0.6.0
 docutils==0.15.2
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.5/en_core_web_sm-2.2.5.tar.gz
+en-core-web-sm==2.2.5
 entrypoints==0.3
 Flask==1.1.1
 funcy==1.14
@@ -52,8 +52,8 @@ lxml==4.5.0
 MarkupSafe==1.1.1
 matplotlib==3.2.0
 mistune==0.8.4
-mkl-fft
-mkl-random
+mkl-fft==1.0.15
+mkl-random==1.1.0
 mkl-service==2.3.0
 more-itertools==8.2.0
 murmurhash==1.0.2
