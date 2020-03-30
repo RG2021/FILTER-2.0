@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Reviews</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+  <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='css/chart.css')}}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
+
+</head>
+
+
+<style type="text/css">
+.show-read-more .more-text
+{
+  display: none;
+}
+
+body {
+    animation: fadeInAnimation ease 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#battery
+{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: none;
+}
+
+</style>
+
+
+
+<body>
+
+  <h1 style="background-color : green;">{{product_name}}</h1>
+  <h1>{{total_reviews}} Analyzed Reviews</h1>
+
+  <div style="padding-bottom: 2rem">
+    <table style="width:100%" class="columns">
+      <tr>
+        <td width="50%" height="100%">
+            <div id="chart_div1" class="chart" style="border: 1px solid #ccc" data-reviews1='{{reviews_count}}'></div>
+        </td>
+        <td width="50%" height="100%">
+            <div id="chart_div2" class="chart" style="border: 1px solid #ccc " data-reviews2='{{tag_ratings}}'></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <h1>Top Most Useful Reviews</h1>
+
+  <p><button onclick="switchVisible()">Battery</button></p>
+
+  <div id="root"></div>
+  <div id="battery"></div>
+  <div id="mydiv" data-geocode='{{reviews}}' data-battery='[{"starRating": "5.0 out of 5 stars", "reviewTitles": "Best Product On Best Discount", "postDate": "Reviewed in India on 21 February 2020", "names": "Sandeep Chandra", "reviewBody": "Best Product On Best Discount As I Got This 2 Pack Total Of 600gm Best Chocolate Biscuits In Rs 169 (Rs 30 More Combo Discount For Selecting 2 Products & Free Delivery For Prime Membership) Which Makes This Deal Even More Value For Money.Packing Was Great, Delivery Was Great.Taste Is Great As Usual"}]'></div>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="{{url_for('static', filename='js/chart.js')}}"></script>
+  <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		var maxLength = 150;
+		$(".show-read-more").each(function(){
+			var myStr = $(this).text();
+			if($.trim(myStr).length > maxLength){
+				var newStr = myStr.substring(0, maxLength);
+				var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+				$(this).empty().html(newStr);
+				$(this).append(' <a href="javascript:void(0);" class="read-more">read more...</a>');
+				$(this).append('<span class="more-text">' + removedStr + '</span>');
+			}
+		});
+		$(".read-more").click(function(){
+			$(this).siblings(".more-text").contents().unwrap();
+			$(this).remove();
+		});
+	});
+
+	function switchVisible()
+    {
+        if (document.getElementById('root'))
+        {
+
+          if (document.getElementById('root').style.display == 'none')
+          {
+              document.getElementById('root').style.display = 'block';
+              document.getElementById('battery').style.display = 'none';
+          }
+          else
+          {
+              document.getElementById('root').style.display = 'none';
+              document.getElementById('battery').style.display = 'block';
+          }
+        }
+    }
+
+	</script>
+</body>
+
+</html>

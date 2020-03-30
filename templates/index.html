@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<!--
+	Eventually by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<style type="text/css">
+	body
+	{
+		background-image: url('/static/images/background-landing-page.jpg') ;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	form ::placeholder
+	{
+  		color: 	#D3D3D3 !important;
+	}
+    h1.lol
+    {
+    	font-family: 'Exo 2', sans-serif;
+    	color: white;
+		font-size: 80px !important;
+    }
+    p.lol2
+    {
+    	font-family: 'Exo 2', sans-serif;
+    	color: white;
+    	font-size: 20px !important;
+    }
+	#myProgress
+	{
+	  display: none;
+	  width: 30%;
+	  background-color: #ddd;
+	}
+
+	#myBar
+	{
+	  width: 1%;
+	  height: 30px;
+	  background-color: #1cb495;
+	  text-align: center;
+	  line-height: 30px;
+	  color: white;
+	}
+	.topright
+	{
+	  position: absolute;
+	  top: 8px;
+	  right: 16px;
+	  font-size: 18px;
+	}
+
+	</style>
+
+
+	<head>
+		<title>FILTER by Rohan Goel</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/css/main.css" />
+		<link rel="stylesheet" href="static/css/pace.css" />
+		<link href="https://fonts.googleapis.com/css?family=Audiowide&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="static/css/ldbtn.min.css"/>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link href="https://fonts.googleapis.com/css?family=Alegreya&display=swap" rel="stylesheet">
+
+	</head>
+
+
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<h1 class="lol">FILTER</h1>
+				<p class="lol2">A Software that will filter out all the Amazon Product Reviews.<br />
+				Providing you with the most authentic and useful reviews. </p>
+			</header>
+
+		<!-- Signup Form  -->
+
+			<form id="signup-form" name="myForm1" method="post" action="/" onsubmit="disableButton(); return true;">
+				<input type="text" name="url" id="email" required pattern="https://www.amazon.in/(.*)" placeholder="Amazon Product URL"/>
+				<input id="submitbutton" class="btn ld-ext-right" type="submit" name="submitbutton" onclick="change();show();" value="Analyze Reviews"/>
+			</form>
+
+			<div id="myProgress" class="w3-light-grey w3-round">
+				<div id="myBar" class="w3-container w3-blue w3-round"></div>
+			</div>
+
+
+		<!-- Scripts -->
+
+			<script>
+
+				function change()
+				{
+					var elem = document.forms["myForm1"]["submitbutton"];
+					var x = document.forms["myForm1"]["url"].value
+					var patt = new RegExp("https://www.amazon.in/(.*)");
+					console.log(elem.value);
+					if(elem.value=="Analyze Reviews" && patt.test(x))
+					{
+						elem.value = "Analyzing...";
+					}
+				}
+
+
+				function show()
+				{
+					var x = document.forms["myForm1"]["url"].value
+					var patt = new RegExp("https://www.amazon.in/(.*)");
+					if(patt.test(x))
+					{
+						document.getElementById("myProgress").style.display = "block";
+
+						var i = 0;
+						if (i == 0)
+						{
+							i = 1;
+							var elem = document.getElementById("myBar");
+							var width = 1;
+							var id = setInterval(frame, 1800);
+							function frame()
+							{
+							  if (width >= 100)
+							  {
+								clearInterval(id);
+								i = 0;
+							  }
+							  else
+							  {
+								width++;
+								elem.style.width = width + "%";
+								elem.innerHTML = width + "%";
+							  }
+							}
+						}
+					}
+				}
+
+				function disableButton()
+				{
+					var x = document.forms["myForm1"]["url"].value
+					var patt = new RegExp("https://www.amazon.in/(.*)");
+					if(patt.test(x))
+					{
+						document.getElementById("submitbutton").disabled = true;
+					}
+				}
+
+			 </script>
+	</body>
+
+</html>
