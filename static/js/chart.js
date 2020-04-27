@@ -10,6 +10,7 @@ function drawChart1() {
   var options1 = {
     title: 'Ratings Count',
     hAxis: {title: 'Rating', titleTextStyle: {color: 'black'}},
+    height: 400,
 };
 
   var ratingchart = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
@@ -22,7 +23,8 @@ function drawChart1() {
   var options2 = {
     title: 'Categories Rating',
     hAxis: {title: 'Count', titleTextStyle: {color: 'black'}},
-    bars: 'horizontal'
+    bars: 'horizontal',
+    height: 400,
 };
 
   var tagchart = new google.charts.Bar(document.getElementById('chart_div2'));

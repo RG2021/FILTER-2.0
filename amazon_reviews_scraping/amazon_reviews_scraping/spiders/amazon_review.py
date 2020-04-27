@@ -30,7 +30,7 @@ class ReviewspiderSpider(scrapy.Spider):
         #self.start_urls.append(self.myBaseUrl+"&pageNumber=1")
         super().__init__(**kwargs)
 
-    custom_settings = {'FEED_URI': 'amazon_reviews_scraping/reviews.json'}
+    custom_settings = {'FEED_URI': 'amazon_reviews_scraping/reviews.json', "CLOSESPIDER_TIMEOUT" : 10}
     #rules = [Rule(LinkExtractor(allow=(), restrict_xpaths=('//li[@class="a-last"]/a/@href',)), follow=True)]
 
     def parse(self, response):

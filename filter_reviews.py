@@ -1,3 +1,5 @@
+from imp import reload
+
 import pandas as pd
 import numpy as np
 import operator
@@ -20,11 +22,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-
 def get_data(data):
 
     df = pd.DataFrame.from_records(data)
-    #df = pd.read_json(path, lines=True)
+    # path = "C:/Users/HP/Desktop/FILTER/amazon_reviews_scraping/reviews.json"
+    #
+    # df = pd.read_json(path, lines=True)
 
     pos_path = "C:/Users/HP/Desktop/FILTER/amazon_reviews_scraping/positive-words.txt"
     neg_path = "C:/Users/HP/Desktop/FILTER/amazon_reviews_scraping/negative-words.txt"
@@ -368,12 +371,25 @@ def final_data_cleaning(new_df, pos_words, neg_words, final_topics):
 
     new2_df.sort_values("finalScore", axis = 0, ascending = False, inplace = True, na_position ='last')
 
-    new2_df = new2_df.head(50)
+    new3_df = new2_df.head(50)
+
+
+    p=0
+    n=0
+    for i in range(0, len(new3_df)):
+        if(p==1 and n==1):
+            break
+        elif(int(new3_df["starRating"].iloc[i]) in [3, 4, 5] and p==0):
+            top_positive = new3_df.iloc[i]
+            p=1
+        elif(int(new3_df["starRating"].iloc[i]) in [1, 2] and n==0):
+            top_negative = new3_df.iloc[i]
+            n=1
 
     countList, countposList, countnegList = tagging(new2_df, pos_words, neg_words, final_topics)
 
     tag_rating = dictionairy(countList, countposList, countnegList, final_topics)
-    return (tag_rating, new2_df.to_json(orient='records', date_format='iso'))
+    return (tag_rating, new3_df.to_json(orient='records', date_format='iso'), top_positive.to_json(), top_negative.to_json())
 
 def review_count(new_df):
     review_dic = [["Review", "Count"], ["1 Star", 0], ["2 Star", 0], ["3 Star", 0], ["4 Star", 0], ["5 Star", 0]]

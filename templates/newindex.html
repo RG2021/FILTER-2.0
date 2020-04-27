@@ -8,7 +8,7 @@
   <title>Reviews</title>
   
   <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
-  <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='css/style_2.css')}}" rel="stylesheet">
   <link href="{{url_for('static', filename='css/chart.css')}}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
 
@@ -26,6 +26,20 @@ body {
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
+
+table {
+    border-collapse: separate;
+    border-spacing: 0.5em 0.5em;
+}
+
+.tm-block-title {
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -47,22 +61,71 @@ body {
 
 
 <body>
-
-  <h1 style="background-color : green;">{{product_name}}</h1>
-  <h1>{{total_reviews}} Analyzed Reviews</h1>
-
-  <div style="padding-bottom: 2rem">
-    <table style="width:100%" class="columns">
-      <tr>
-        <td width="50%" height="100%">
-            <div id="chart_div1" class="chart" style="border: 1px solid #ccc" data-reviews1='{{reviews_count}}'></div>
-        </td>
-        <td width="50%" height="100%">
-            <div id="chart_div2" class="chart" style="border: 1px solid #ccc " data-reviews2='{{tag_ratings}}'></div>
-        </td>
-      </tr>
+  <table class="lol6">
+        <tr>
+            <td>
+                <table style="width: 1080px;">
+                  <tr>
+                    <th>
+                        <div class="bg-white bg-gradient-info tm-block" style=" width: 360px; height: 200px; text-align: center;">
+                            <h2 class="tm-block-title">Product Name</h2>
+                            <h4 style="font-size: 1.2rem; color: white;">{{product_name}}</h4>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="bg-white bg-gradient-warning tm-block" style=" width: 360px; height: 200px; text-align: center;">
+                            <h2 class="tm-block-title">Total Count</h2>
+                            <h4 style="font-size: 1.2rem; color: white;">{{total_reviews}}</h4>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="bg-white bg-gradient-warning tm-block" style=" width: 360px; height: 200px; text-align: center;">
+                            <h2 class="tm-block-title">Last Analysed Date</h2>
+                            <h4 style="font-size: 1.2rem; color: white;">{{last_date}}</h4>
+                        </div>
+                    </th>
+                  </tr>
+                </table>
+                <table>
+                  <tr>
+                    <th>
+                        <div class="bg-white tm-block" style=" width: 540px; height: 450px; border: 1px solid black;">
+                            <div id="chart_div1" class="chart" style="padding: 5px:" data-reviews1='{{reviews_count}}'></div>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="bg-white tm-block" style=" width: 540px; height: 450px; border: 1px solid black;">
+                            <div id="chart_div2" class="chart" style="padding: 5px;" data-reviews2='{{tag_ratings}}'></div>
+                        </div>
+                    </th>
+                  </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <th>
+                           <div class="bg-white card" style=" width: 300px; height: 325px;">
+                                <h1 class="bg-gradient-info">Top Positive</h1>
+                                <p>{{top_pos_name}}</p>
+                                <p class="show-read-more">{{top_pos_review}}</p>
+                            </div>
+                        </th> 
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="bg-white card" style=" width: 300px; height: 325px;">
+                                <h1 class="bg-gradient-warning">Top Negative</h1>
+                                <p>{{top_neg_name}}</p>
+                                <p class="show-read-more">{{top_neg_review}}</p>
+                            </div>
+                        </th>
+                    </tr>
+                </table>
+            </td>
+        </tr>
     </table>
-  </div>
+
 
   <h1>Top Most Useful Reviews</h1>
 

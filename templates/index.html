@@ -1,159 +1,576 @@
-<!DOCTYPE HTML>
-<!--
-	Eventually by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<style type="text/css">
-	body
-	{
-		background-image: url('/static/images/background-landing-page.jpg') ;
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
-	}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FILTER &mdash; Fake Reviews Filter by Rohan Goel</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/static/fonts/icomoon/style.css">
 
-	form ::placeholder
-	{
-  		color: 	#D3D3D3 !important;
-	}
-    h1.lol
-    {
-    	font-family: 'Exo 2', sans-serif;
-    	color: white;
-		font-size: 80px !important;
-    }
-    p.lol2
-    {
-    	font-family: 'Exo 2', sans-serif;
-    	color: white;
-    	font-size: 20px !important;
-    }
-	#myProgress
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/jquery-ui.css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="/static/css/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="/static/css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="/static/fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="/static/css/aos.css">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+  </head>
+  <style type="text/css">
+
+  	#myProgress
 	{
 	  display: none;
-	  width: 30%;
-	  background-color: #ddd;
+	  width: 70%;
+	  height: 35px;
 	}
 
 	#myBar
 	{
 	  width: 1%;
-	  height: 30px;
-	  background-color: #1cb495;
+	  height: 35px;
 	  text-align: center;
-	  line-height: 30px;
+	  line-height: 35px;
 	  color: white;
 	}
-	.topright
-	{
-	  position: absolute;
-	  top: 8px;
-	  right: 16px;
-	  font-size: 18px;
-	}
+	
+  </style>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  
 
-	</style>
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div class="site-wrap"  id="home-section">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+   
+   
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <div class="col-6 col-md-3 col-xl-4  d-block">
+            <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">FILTER</a></h1>
+          </div>
+
+          <div class="col-12 col-md-9 col-xl-8 main-menu">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block ml-0 pl-0">
+                <li><a href="#home-section" class="nav-link">Home</a></li>
+                <li><a href="#features-section" class="nav-link">Features</a></li>
+                <li><a href="#about-section" class="nav-link">About Us</a></li>
+                <li><a href="#blog-section" class="nav-link">Blog</a></li>
+                <li><a href="#contact-section" class="nav-link">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
 
 
-	<head>
-		<title>FILTER by Rohan Goel</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="static/css/main.css" />
-		<link rel="stylesheet" href="static/css/pace.css" />
-		<link href="https://fonts.googleapis.com/css?family=Audiowide&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="static/css/ldbtn.min.css"/>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link href="https://fonts.googleapis.com/css?family=Alegreya&display=swap" rel="stylesheet">
+          <div class="col-6 col-md-9 d-inline-block d-lg-none ml-md-0" ><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
 
-	</head>
+        </div>
+      </div>
+      
+    </header>
+    
+
+    <div class="site-blocks-cover" style="overflow: hidden;">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+
+          <div class="col-md-12" style="position: relative;" data-aos="fade-up" data-aos-delay="200">
+            
+            <img src="/static/images/undraw_investing_7u74.svg" alt="Image" class="img-fluid img-absolute">
+
+            <div class="row mb-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="col-lg-6 mr-auto">
+                <h1>Get the most Genuine and Valuable Reviews</h1>
+                <p class="mb-5">The FILTER filters out all the fake reviews and extracts the most valuable reviews to help you make better purchasing decisions.</p>
+                <div>
+                	<form id="signup-form" class="form-inline" name="myForm1" method="post" action="/" onsubmit="disableButton(); return true;">
+						<input type="text" class="form-control input-lg" id="exampleInputEmail1" name="url" style="width:55%; margin-right:10px;" required pattern="https://www.amazon.in/(.*)" placeholder="Amazon Product URL"/>
+						<input id="submitbutton" class="btn btn-primary btn-sm mr-2 mb-2" type="submit" name="submitbutton" onclick="change();show();" value="Analyze Reviews"/>
+					</form>
+                    <br><br>
+					<div id="myProgress" class="progress">
+						<div id="myBar" class="progress-bar progress-bar-striped progress-bar-animated" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+                </div>
+              </div>
+              
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>  
 
 
-	<body class="is-preload">
+    <div class="site-section" id="features-section">
+      <div class="container">
+        <div class="row mb-5 justify-content-center text-center"  data-aos="fade-up">
+          <div class="col-7 text-center  mb-5">
+            <h2 class="section-title">Filter Features</h2>
+            <p class="lead">The Premium features offered by us</p>
+          </div>
+        </div>
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <span class="icon-wrap"><span class="text-primary icon-autorenew"></span></span>
+              </div>
+              <div>
+                <h3>Fake Review Filter</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+              </div>
+            </div>
 
-		<!-- Header -->
-			<header id="header">
-				<h1 class="lol">FILTER</h1>
-				<p class="lol2">A Software that will filter out all the Amazon Product Reviews.<br />
-				Providing you with the most authentic and useful reviews. </p>
-			</header>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
 
-		<!-- Signup Form  -->
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <span class="icon-wrap"><span class="text-primary icon-store_mall_directory"></span></span>
+              </div>
+              <div>
+                <h3>Feature-Wise Ratings</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up"  data-aos-delay="200">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <span class="icon-wrap"><span class="text-primary icon-shopping_basket"></span></span>
+              </div>
+              <div>
+                <h3>Valuable Reviews</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+              </div>
+            </div>
+          </div>
 
-			<form id="signup-form" name="myForm1" method="post" action="/" onsubmit="disableButton(); return true;">
-				<input type="text" name="url" id="email" required pattern="https://www.amazon.in/(.*)" placeholder="Amazon Product URL"/>
-				<input id="submitbutton" class="btn ld-ext-right" type="submit" name="submitbutton" onclick="change();show();" value="Analyze Reviews"/>
-			</form>
 
-			<div id="myProgress" class="w3-light-grey w3-round">
-				<div id="myBar" class="w3-container w3-blue w3-round"></div>
-			</div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <span class="icon-wrap"><span class="text-primary icon-settings_backup_restore"></span></span>
+              </div>
+              <div>
+                <h3>Free Updates</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <span class="icon-wrap"><span class="text-primary icon-sentiment_satisfied"></span></span>
+              </div>
+              <div>
+                <h3>100% Satistified</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+
+            
+          </div>
+          
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <span class="icon-wrap"><span class="text-primary icon-power"></span></span>
+              </div>
+              <div>
+                <h3>Easy Plugin</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                <p><a href="#">Learn More</a></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    
+    <div class="feature-big">
+      <div class="container">
+        <div class="row mb-5 site-section">
+          <div class="col-lg-7" data-aos="fade-right">
+            <img src="/static/images/undraw_gift_card_6ekc.svg" alt="Image" class="img-fluid">
+          </div>
+          <div class="col-lg-5 pl-lg-5 ml-auto mt-md-5">
+            <h2 class="text-black">Communicate and gather feedback</h2>
+            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem neque nisi architecto autem molestias corrupti officia veniam.</p>
+            
+            <div class="author-box" data-aos="fade-left">
+              <div class="d-flex mb-4">
+                <div class="mr-3">
+                  <img src="/static/images/person_4.jpg" alt="Image" class="img-fluid rounded-circle">
+                </div>
+                <div class="mr-auto text-black">
+                  <strong class="font-weight-bold mb-0">Grey Simpson</strong> <br>
+                  Co-Founder, XYZ Inc.
+                </div>
+              </div>
+              <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus vitae ipsa asperiores inventore aperiam iure?&rdquo;</blockquote>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 row mb-5 site-section ">
+          <div class="col-lg-7 order-1 order-lg-2" data-aos="fade-left">
+            <img src="/static/images/undraw_metrics_gtu7.svg" alt="Image" class="img-fluid">
+          </div>
+          <div class="col-lg-5 pr-lg-5 mr-auto mt-5 order-2 order-lg-1">
+            <h2 class="text-black">Communicate and gather feedback</h2>
+            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem neque nisi architecto autem molestias corrupti officia veniam</p>
+            
+            
+
+            <div class="author-box" data-aos="fade-right">
+              <div class="d-flex mb-4">
+                <div class="mr-3">
+                  <img src="/static/images/person_1.jpg" alt="Image" class="img-fluid rounded-circle">
+                </div>
+                <div class="mr-auto text-black">
+                  <strong class="font-weight-bold mb-0">Kimberly Gush</strong> <br>
+                  Co-Founder, XYZ Inc.
+                </div>
+              </div>
+              <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus vitae ipsa asperiores inventore aperiam iure?&rdquo;</blockquote>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-5 site-section">
+          <div class="col-lg-7" data-aos="fade-right">
+            <img src="/static/images/undraw_gift_card_6ekc.svg" alt="Image" class="img-fluid">
+          </div>
+          <div class="col-lg-5 pl-lg-5 ml-auto mt-md-5">
+            <h2 class="text-black">Communicate and gather feedback</h2>
+            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem neque nisi architecto autem molestias corrupti officia veniam.</p>
+            
+            <div class="author-box" data-aos="fade-left">
+              <div class="d-flex mb-4">
+                <div class="mr-3">
+                  <img src="/static/images/person_4.jpg" alt="Image" class="img-fluid rounded-circle">
+                </div>
+                <div class="mr-auto text-black">
+                  <strong class="font-weight-bold mb-0">Grey Simpson</strong> <br>
+                  Co-Founder, XYZ Inc.
+                </div>
+              </div>
+              <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus vitae ipsa asperiores inventore aperiam iure?&rdquo;</blockquote>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 row mb-5 site-section ">
+          <div class="col-lg-7 order-1 order-lg-2" data-aos="fade-left">
+            <img src="/static/images/undraw_metrics_gtu7.svg" alt="Image" class="img-fluid">
+          </div>
+          <div class="col-lg-5 pr-lg-5 mr-auto mt-5 order-2 order-lg-1">
+            <h2 class="text-black">Communicate and gather feedback</h2>
+            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem neque nisi architecto autem molestias corrupti officia veniam</p>
+            
+            
+
+            <div class="author-box" data-aos="fade-right">
+              <div class="d-flex mb-4">
+                <div class="mr-3">
+                  <img src="/static/images/person_1.jpg" alt="Image" class="img-fluid rounded-circle">
+                </div>
+                <div class="mr-auto text-black">
+                  <strong class="font-weight-bold mb-0">Kimberly Gush</strong> <br>
+                  Co-Founder, XYZ Inc.
+                </div>
+              </div>
+              <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus vitae ipsa asperiores inventore aperiam iure?&rdquo;</blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
-		<!-- Scripts -->
+    <div class="site-section" id="about-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3">About Us</h2>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-lg-6" data-aos="fade-right">
+            <img src="/static/images/undraw_bookmarks_r6up.svg" alt="Image" class="img-fluid">
+          </div>
+          <div class="col-lg-5 ml-auto pl-lg-5">
+            <h2 class="text-black mb-4 h3 font-weight-bold">Our Mission</h2>
+            <p class="mb-4">Eos cumque optio dolores excepturi rerum temporibus magni recusandae eveniet, totam omnis consectetur maxime quibusdam expedita dolorem dolor nobis dicta labore quaerat esse magnam unde, aperiam delectus! At maiores, itaque.</p>
+            <ul class="ul-check mb-5 list-unstyled success">
+              <li>Laborum enim quasi at modi</li>
+              <li>Ad at tempore</li>
+              <li>Labore quaerat esse</li>
+            </ul>
+            <p><a href="#" class="btn btn-primary">Learn More</a></p>
+          </div>
+        </div>
 
-			<script>
+        
+      </div>
+    </div>
 
-				function change()
+    <div class="site-section" id="blog-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3">Blog Posts</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm">
+            <div class="h-entry">
+              <img src="/static/images/img_1.jpeg" alt="Image" class="img-fluid">
+              <h2><a href="https://medium.com/analytics-vidhya/web-scraping-a-to-z-using-scrapy-6ece8b303793" target="_blank">Scraping A to Z using Scrapy</a></h2>
+              <div class="meta mb-4">Rohan Goel <span class="mx-2">&bullet;</span> Mar 18, 2020<span class="mx-2">&bullet;</span> <a href="#">Analytics Vidhya</a></div>
+              <p>Scrapy is a fast, open-source web crawling framework written in Python, used to extract the data from the web page with the help of selectors based on XPath. In this article, We’ll see how we can…</p>
+              <p><a href="https://medium.com/analytics-vidhya/web-scraping-a-to-z-using-scrapy-6ece8b303793" target="_blank">Continue Reading...</a></p>
+            </div> 
+          </div>
+          <div class="col-sm">
+            <div class="h-entry">
+              <img src="/static/images/img_2.jpg" alt="Image" class="img-fluid">
+              <h2><a href="https://medium.com/analytics-vidhya/integrating-scrapy-with-flask-8611debc4579" target="_blank">Integrating Scrapy with Flask</a></h2>
+              <div class="meta mb-4">Rohan Goel <span class="mx-2">&bullet;</span> Mar 23, 2020<span class="mx-2">&bullet;</span> <a href="#">Analytics Vidhya</a></div>
+              <p>Flask is an API of Python that allows us to build up web-applications. Flask’s framework is more explicit than Django’s framework and is also easier to learn because it has less base code to…</p>
+              <p><a href="https://medium.com/analytics-vidhya/integrating-scrapy-with-flask-8611debc4579" target="_blank">Continue Reading...</a></p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm">
+            <div class="h-entry">
+              <img src="/static/images/img_3.jpeg" alt="Image" class="img-fluid">
+              <h2><a href="https://medium.com/analytics-vidhya/connecting-scrapy-to-mysql-database-in-flask-256adc70b321" target="_blank">Scrapy with Database in Flask</a></h2>
+              <div class="meta mb-4">Rohan Goel <span class="mx-2">&bullet;</span> Mar 29, 2020<span class="mx-2">&bullet;</span> <a href="#">Analytics Vidhya</a></div>
+              <p>In this article, I’ll explain how to store the scraped data using Scrapy from Amazon in an MYSQL Database such that we have don't have to scrape the data again and again if we have already scraped…</p>
+              <p><a href="https://medium.com/analytics-vidhya/connecting-scrapy-to-mysql-database-in-flask-256adc70b321" target="_blank">Continue Reading...</a></p>
+            </div> 
+          </div>
+          <div class="col-sm">
+            <div class="h-entry">
+              <img src="/static/images/img_4.jpg" alt="Image" class="img-fluid">
+              <h2><a href="https://medium.com/analytics-vidhya/aspect-based-sentiment-analysis-a-practical-approach-8f51029bbc4a" target="_blank">Aspect Based Sentiment Analysis: A Practical Approach</a></h2>
+              <div class="meta mb-4">Rohan Goel <span class="mx-2">&bullet;</span> Apr 19, 2020<span class="mx-2">&bullet;</span> <a href="#">Analytics Vidhya</a></div>
+              <p>Aspect Based Sentiment Analysis also known as Feature Based Sentiment Analysis is a technique to find out various features, attributes or aspects from a given text and their respective sentiments. In…</p>
+              <p><a href="https://medium.com/analytics-vidhya/aspect-based-sentiment-analysis-a-practical-approach-8f51029bbc4a" target="_blank">Continue Reading...</a></p>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section bg-image2 overlay" id="contact-section" style="background-image: url('/static/images/hero_1.jpg');">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3 text-white">Contact Me</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-7 mb-5">
+
+            
+
+            <form action="#" class="p-5 bg-white">
+              
+              <h2 class="h4 text-black mb-5">Contact Form</h2> 
+
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">First Name</label>
+                  <input type="text" id="fname" class="form-control rounded-0">
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="lname">Last Name</label>
+                  <input type="text" id="lname" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Email</label> 
+                  <input type="email" id="email" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="subject">Subject</label> 
+                  <input type="subject" id="subject" class="form-control rounded-0">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="message">Message</label> 
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control rounded-0" placeholder="Leave your message here..."></textarea>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Send Message" class="btn btn-primary mr-2 mb-2">
+                </div>
+              </div>
+
+  
+            </form>
+          </div>
+        
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="footer py-5 text-center">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12">
+            <p class="mb-0">
+              <a href="#" class="p-3"><span class="icon-facebook"></span></a>
+              <a href="#" class="p-3"><span class="icon-medium"></span></a>
+              <a href="#" class="p-3"><span class="icon-instagram"></span></a>
+              <a href="#" class="p-3"><span class="icon-linkedin"></span></a>
+              <a href="#" class="p-3"><span class="icon-github"></span></a>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p class="mb-0">
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Project is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://www.linkedin.com/in/rohan-goel-b0a6ab160/" target="_blank" >Rohan Goel</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- .site-wrap -->
+
+  <script>
+
+			function change()
+			{
+				var elem = document.forms["myForm1"]["submitbutton"];
+				var x = document.forms["myForm1"]["url"].value
+				var patt = new RegExp("https://www.amazon.in/(.*)");
+				console.log(elem.value);
+				if(elem.value=="Analyze Reviews" && patt.test(x))
 				{
-					var elem = document.forms["myForm1"]["submitbutton"];
-					var x = document.forms["myForm1"]["url"].value
-					var patt = new RegExp("https://www.amazon.in/(.*)");
-					console.log(elem.value);
-					if(elem.value=="Analyze Reviews" && patt.test(x))
-					{
-						elem.value = "Analyzing...";
-					}
+					elem.value = "Analyzing...";
 				}
+			}
 
 
-				function show()
+			function show()
+			{
+				var x = document.forms["myForm1"]["url"].value
+				var patt = new RegExp("https://www.amazon.in/(.*)");
+				if(patt.test(x))
 				{
-					var x = document.forms["myForm1"]["url"].value
-					var patt = new RegExp("https://www.amazon.in/(.*)");
-					if(patt.test(x))
-					{
-						document.getElementById("myProgress").style.display = "block";
+					document.getElementById("myProgress").style.display = "block";
 
-						var i = 0;
-						if (i == 0)
+					var i = 0;
+					if (i == 0)
+					{
+						i = 1;
+						var elem = document.getElementById("myBar");
+						var width = 1;
+						var id = setInterval(frame, 1800);
+						function frame()
 						{
-							i = 1;
-							var elem = document.getElementById("myBar");
-							var width = 1;
-							var id = setInterval(frame, 1800);
-							function frame()
-							{
-							  if (width >= 100)
-							  {
-								clearInterval(id);
-								i = 0;
-							  }
-							  else
-							  {
-								width++;
-								elem.style.width = width + "%";
-								elem.innerHTML = width + "%";
-							  }
-							}
+						  if (width >= 100)
+						  {
+							clearInterval(id);
+							i = 0;
+						  }
+						  else
+						  {
+							width++;
+							elem.style.width = width + "%";
+							elem.innerHTML = width + "%";
+						  }
 						}
 					}
 				}
+			}
 
-				function disableButton()
+			function disableButton()
+			{
+				var x = document.forms["myForm1"]["url"].value
+				var patt = new RegExp("https://www.amazon.in/(.*)");
+				if(patt.test(x))
 				{
-					var x = document.forms["myForm1"]["url"].value
-					var patt = new RegExp("https://www.amazon.in/(.*)");
-					if(patt.test(x))
-					{
-						document.getElementById("submitbutton").disabled = true;
-					}
+					document.getElementById("submitbutton").disabled = true;
 				}
+			}
 
-			 </script>
-	</body>
+		</script>
 
+  <script src="/static/js/jquery-3.3.1.min.js"></script>
+  <script src="/static/js/jquery-ui.js"></script>
+  <script src="/static/js/popper.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/owl.carousel.min.js"></script>
+  <script src="/static/js/jquery.countdown.min.js"></script>
+  <script src="/static/js/bootstrap-datepicker.min.js"></script>
+  <script src="/static/js/jquery.easing.1.3.js"></script>
+  <script src="/static/js/aos.js"></script>
+  <script src="/static/js/jquery.fancybox.min.js"></script>
+  <script src="/static/js/jquery.sticky.js"></script>
+
+  
+  <script src="/static/js/main.js"></script>
+
+  
+  </body>
 </html>
