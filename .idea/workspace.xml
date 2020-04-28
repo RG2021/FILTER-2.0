@@ -2,63 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53fd4579-6b98-4542-ba74-19c08c733c4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/aspect based sentiment analysis-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/aspect based sentiment analysis-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/amazon_reviews_scraping/amazon_reviews_scraping/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/amazon_reviews_scraping/amazon_reviews_scraping/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/amazon_reviews_scraping/amazon_reviews_scraping/spiders/amazon_review.py" beforeDir="false" afterPath="$PROJECT_DIR$/amazon_reviews_scraping/amazon_reviews_scraping/spiders/amazon_review.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filter_reviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/filter_reviews.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features_count.db" beforeDir="false" afterPath="$PROJECT_DIR$/features_count.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/base/_bg.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/base/_page.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/base/_reset.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/base/_typography.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/components/_button.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/components/_form.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/components/_icon.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/components/_icons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/components/_list.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/components/_section.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/layout/_footer.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/layout/_header.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/layout/_signup-form.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/libs/_breakpoints.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/libs/_functions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/libs/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/libs/_vars.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/libs/_vendor.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/sass/main.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/chart.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/chart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/fontawesome-all.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/ldbtn.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/loading.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/loading.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/pace.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reviews_count.db" beforeDir="false" afterPath="$PROJECT_DIR$/reviews_count.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/background-landing-page.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/frame_0_delay-2.03s_upscaled_illustration_x4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/img_2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/img_2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/img_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/pace.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-brands-400.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-brands-400.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-brands-400.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-brands-400.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-brands-400.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-regular-400.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-regular-400.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-regular-400.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-regular-400.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-regular-400.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-solid-900.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-solid-900.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-solid-900.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-solid-900.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/webfonts/fa-solid-900.woff2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/newindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/newindex.html" afterDir="false" />
     </list>
@@ -174,26 +123,26 @@
     </state>
     <state x="548" y="166" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1580651920937" />
     <state x="548" y="174" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1585571027005" />
-    <state width="1515" height="277" key="GridCell.Tab.0.bottom" timestamp="1587990386406">
+    <state width="1515" height="185" key="GridCell.Tab.0.bottom" timestamp="1588077536493">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1515" height="220" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581444680282" />
-    <state width="1515" height="277" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587990386406" />
-    <state width="1515" height="277" key="GridCell.Tab.0.center" timestamp="1587990386406">
+    <state width="1515" height="185" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1588077536493" />
+    <state width="1515" height="185" key="GridCell.Tab.0.center" timestamp="1588077536493">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1515" height="220" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1581444680281" />
-    <state width="1515" height="277" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1587990386406" />
-    <state width="1515" height="277" key="GridCell.Tab.0.left" timestamp="1587990386406">
+    <state width="1515" height="185" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1588077536493" />
+    <state width="1515" height="185" key="GridCell.Tab.0.left" timestamp="1588077536493">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1515" height="220" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1581444680281" />
-    <state width="1515" height="277" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1587990386406" />
-    <state width="1515" height="277" key="GridCell.Tab.0.right" timestamp="1587990386406">
+    <state width="1515" height="185" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1588077536493" />
+    <state width="1515" height="185" key="GridCell.Tab.0.right" timestamp="1588077536493">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1515" height="220" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581444680282" />
-    <state width="1515" height="277" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1587990386406" />
+    <state width="1515" height="185" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1588077536493" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1585571068243">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

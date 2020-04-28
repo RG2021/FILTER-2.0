@@ -1835,7 +1835,7 @@ h1, h2, h3, h4, h5,
   .author-box *:last-child {
     margin-bottom: 0; }
   .author-box img {
-    max-width: 50px; }
+    max-width: 150px; }
   .author-box blockquote {
     font-style: italic; }
 
