@@ -15,6 +15,10 @@
   * Top 50 most Helpful and Authentic reviews eliminating the need for the customer to scroll down for       every review that best explains the product.
 
 ## Flow Architecture / System Design
+![Flow](../master/static/images/flow_design.png)
+
+## Methodology
+
 
 
 
