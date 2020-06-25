@@ -17,8 +17,18 @@
 ## Flow Architecture / System Design
 ![Flow](../master/static/images/flow_design.png)
 
-## Methodology
+## Result
+### Home Page
+![1](../master/static/images/out_1.jpg)
 
+### After Link Input
+![2](../master/static/images/out_2.jpg)
+
+### Result Page
+![3](../master/static/images/out_3.jpg)
+
+### Most Useful Reviews
+![4](../master/static/images/out_4.jpg)
 
 
 
