@@ -29,8 +29,8 @@ def get_data(data):
     #
     # df = pd.read_json(path, lines=True)
 
-    pos_path = "C:/Users/HP/Desktop/FILTER/amazon_reviews_scraping/positive-words.txt"
-    neg_path = "C:/Users/HP/Desktop/FILTER/amazon_reviews_scraping/negative-words.txt"
+    pos_path = "C:/Users/A D R/Desktop/FILTER/FILTER-2.0/amazon_reviews_scraping/positive-words.txt"
+    neg_path = "C:/Users/A D R/Desktop/FILTER/FILTER-2.0/amazon_reviews_scraping/negative-words.txt"
 
     pos = pd.read_csv(pos_path, sep="\n", header=None, encoding='latin-1')
     neg = pd.read_csv(neg_path, sep="\n", header=None, encoding='latin-1')
