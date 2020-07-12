@@ -1,27 +1,3 @@
-# from flask import Flask
-# from flask_sqlalchemy import SQLAlchemy
-# from sqlalchemy import MetaData
-# from flask_script import Manager
-# from flask_migrate import Migrate, MigrateCommand
-
-# app = Flask(__name__)
-
-# naming_convention = {
-#     "ix": 'ix_%(column_0_label)s',
-#     "uq": "uq_%(table_name)s_%(column_0_name)s",
-#     "ck": "ck_%(table_name)s_%(column_0_name)s",
-#     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
-#     "pk": "pk_%(table_name)s"
-# }
-
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///final.db'
-# db = SQLAlchemy(app=app,metadata=MetaData(naming_convention=naming_convention))
-
-# migrate = Migrate(app, db, render_as_batch=True)
-# manager = Manager(app)
-
-# manager.add_command('db', MigrateCommand)
-
 from app import db
 import json
 
@@ -47,7 +23,7 @@ class Reviewer(db.Model):
 	__tablename__ = 'reviewer'
 	id = db.Column('id', db.Integer, primary_key=True) #
 	name = db.Column('name', db.String) #
-	url = db.Column('url', db.String) #
+	url = db.Column('url', db.String, uselist=False) #
 	reviews = db.relationship('Reviews', backref='reviewer') #
 
 
@@ -93,7 +69,71 @@ class TopPN(db.Model):
 	neg_review_id = db.Column('neg_review_id', db.Integer, db.ForeignKey('reviews.id'))
 
 
-#####################################################  Adding Data  ##########################################################
+#####################################################################################################################
+
+class Get:
+	def __init__(self, url):
+		self.product = Product.query.filter_by(url=url).first()
+
+	def get_product_ratings(self):
+		rating = self.product.ratings
+
+		reviews_count = []
+		reviews_count.append(["Review", "Count"])
+		reviews_count.append(["1 Star", rating.star_1])
+		reviews_count.append(["2 Star", rating.star_2])
+		reviews_count.append(["3 Star", rating.star_3])
+		reviews_count.append(["4 Star", rating.star_4])
+		reviews_count.append(["5 Star", rating.star_5])
+
+		return reviews_count
+
+	def get_tag_ratings(self):
+		pfeature = self.product.features
+
+		tag_ratings = []
+		tag_ratings.append(["Categories", "PositiveCount", "NegativeCount"])
+
+		for i in pfeature[1:]:
+			tag_ratings.append([i.feature, i.pos_count, i.neg_count])
+
+		return tag_ratings
+
+	def get_topPN(self):
+		top_pn = self.product.top_pn
+		top_pos_review_id = top_pn.pos_review_id
+		top_neg_review_id = top_pn.neg_review_id
+
+		top_pos_review = Reviews.query.filter_by(id = top_pos_review_id).first()
+		top_neg_review = Reviews.query.filter_by(id = top_neg_review_id).first()
+
+		top_pos_name = top_pos_review.reviewer.name
+		top_pos_text = top_pos_review.review
+
+		top_neg_name = top_neg_review.reviewer.name
+		top_neg_text = top_neg_review.review
+
+		return(top_pos_name, top_pos_text, top_neg_name, top_neg_text)
+
+	def get_product_details(self):
+		name = self.product.name
+		last_analyzed_date = self.product.last_date
+		total_count = self.product.total_reviews
+
+		return(name, last_analyzed_date, total_count)
+
+	def get_product_reviews_data(self):
+		output_data = []
+		data = self.product.reviews
+		for x in data:
+			temp = dict(x.__dict__.items())
+			temp.pop("_sa_instance_state")
+			temp["names"] = x.reviewer.name
+			output_data.append(temp)
+
+		return(json.dumps(output_data))
+
+##############################################################################################################################
 
 class Put:
 	def __init__(self, url, name, last_date, total_reviews):
@@ -163,113 +203,3 @@ class Put:
 		pn_review = TopPN(product=self.product, top_pos_review=top_pos_review, top_neg_review=top_neg_review)
 		db.session.add(pn_review)
 		db.session.commit()
-
-
-######################################################## GET DATA ################################################################
-
-class Get:
-	def __init__(self, url):
-		self.product = Product.query.filter_by(url=url).first()
-
-	def get_product_ratings(self):
-		rating = self.product.ratings
-
-		reviews_count = []
-		reviews_count.append(["Review", "Count"])
-		reviews_count.append(["1 Star", rating.star_1])
-		reviews_count.append(["2 Star", rating.star_2])
-		reviews_count.append(["3 Star", rating.star_3])
-		reviews_count.append(["4 Star", rating.star_4])
-		reviews_count.append(["5 Star", rating.star_5])
-
-		return reviews_count
-
-	def get_tag_ratings(self):
-		pfeature = self.product.features
-
-		tag_ratings = []
-		tag_ratings.append(["Categories", "PositiveCount", "NegativeCount"])
-
-		for i in pfeature[1:]:
-			tag_ratings.append([i.feature, i.pos_count, i.neg_count])
-
-		return tag_ratings
-
-	def get_topPN(self):
-		top_pn = self.product.top_pn
-		top_pos_review_id = top_pn.pos_review_id
-		top_neg_review_id = top_pn.neg_review_id
-
-		top_pos_review = Reviews.query.filter_by(id = top_pos_review_id).first()
-		top_neg_review = Reviews.query.filter_by(id = top_neg_review_id).first()
-
-		top_pos_name = top_pos_review.reviewer.name
-		top_pos_text = top_pos_review.review
-
-		top_neg_name = top_neg_review.reviewer.name
-		top_neg_text = top_neg_review.review
-
-		return(top_pos_name, top_pos_text, top_neg_name, top_neg_text)
-
-	def get_product_details(self):
-		name = self.product.name
-		last_analyzed_date = product.last_date
-		total_count = product.total_reviews
-
-		return(name, last_analyzed_date, total_count)
-
-	def get_product_reviews_data(self):
-		output_data = []
-		data = self.product.reviews
-		for x in data:
-			temp = dict(x.__dict__.items())
-			temp.pop("_sa_instance_state")
-			temp["names"] = x.reviewer.name
-			output_data.append(temp)
-
-		return(json.dumps(output_data))
-
-#################################################################################################################################
-
-
-
-# db.create_all()
-# user1 = Reviewer(name="user1", url="http")
-# user2 = Reviewer(name="user2", url="http")
-# user3 = Reviewer(name="user3", url="http")
-# user4 = Reviewer(name="user4", url="http")
-# user5 = Reviewer(name="user5", url="http")
-# db.session.add(user1)
-# db.session.add(user2)
-# db.session.add(user3)
-# db.session.add(user4)
-# db.session.add(user5)
-# db.session.commit()
-# product1 = Product(url="http", name="product1", last_date=10, total_reviews=10)
-# product2 = Product(url="http", name="product2", last_date=10, total_reviews=10)
-# product3 = Product(url="http", name="product3", last_date=10, total_reviews=10)
-# db.session.add(product1)
-# db.session.add(product2)
-# db.session.add(product3)
-# db.session.commit()
-
-
-# review1 = Reviews(reviewer=user1, product=product1, title="hello", review="hello world", post_date="10", rating=5, h
-# review2 = Reviews(reviewer=user2, product=product1, title="hello", review="hello world", post_date="10", rating=5, h
-# review2 = Reviews(reviewer=user3, product=product1, title="hello", review="hello world", post_date="10", rating=5, h
-# review3 = Reviews(reviewer=user4, product=product2, title="hello", review="hello world", post_date="10", rating=5, h
-# review4 = Reviews(reviewer=user2, product=product2, title="hello", review="hello world", post_date="10", rating=5, h
-# review5 = Reviews(reviewer=user5, product=product3, title="hello", review="hello world", post_date="10", rating=5, h
-# db.session.add(review1)
-# db.session.add(review2)
-# db.session.add(review3)
-# db.session.add(review4)
-# db.session.add(review5)
-# db.seesion.commit()
-
-# product1.reviewers.append(user3)
-# product3.reviewers.append(user1)
-# product3.reviewers.append(user1)
-# product2.reviewers.append(user5)
-# product2.reviewers.append(user4)
-# product2.reviewers.append(user6)

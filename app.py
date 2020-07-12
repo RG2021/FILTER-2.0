@@ -1,23 +1,5 @@
-from typing import List, Any
-import json
-from flask import Flask , render_template, jsonify, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import MetaData
-from flask_script import Manager
-from flask_migrate import Migrate, MigrateCommand
-from filter_reviews import get_data, data_preprocessing, data_cleaning, final_data_cleaning, categorizing_reviews, remove_stopwords, lemmatization, topics_list, review_count
-from database import check_review_table_exist, fetch_data, store_data
-from twisted.internet import reactor
-from scrapy import signals
-from scrapy.crawler import CrawlerRunner
-from scrapy.signalmanager import dispatcher
-from amazon_reviews_scraping.amazon_reviews_scraping.spiders.amazon_review import ReviewspiderSpider
-import time
-from datetime import date
-import os
-import sqlite3 as sql
+from imports import *
 
-import crochet
 crochet.setup()
 
 app = Flask(__name__)
@@ -33,12 +15,11 @@ naming_convention = {
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///final.db'
 db = SQLAlchemy(app=app,metadata=MetaData(naming_convention=naming_convention))
 
-# migrate = Migrate(app, db, render_as_batch=True)
-# manager = Manager(app)
+migrate = Migrate(app, db, render_as_batch=True)
+manager = Manager(app)
+manager.add_command('db', MigrateCommand)
 
-# manager.add_command('db', MigrateCommand)
-
-from new_database import *
+from model import *
 
 data = []
 crawl_runner = CrawlerRunner()
@@ -62,18 +43,20 @@ def submit():
 
 @app.route("/scrape")
 def scrape():
-    
+
     global baseURL
-    if(True):
-        product = Product.query.filter_by(url=baseURL).first()
-        output_data = get_product_reviews_data(product)
-        product_name, last_date, total_reviews = get_product_details(product)
-        top_pos_name, top_pos_review, top_neg_name, top_neg_review = get_topPN(product)
-        tag_ratings = get_tag_ratings(product)
-        reviews_count = get_product_ratings(product)
+
+    if(Product.query.filter_by(url=baseURL).first()):
+        obj = Get(baseURL)
+        output_data = obj.get_product_reviews_data()
+        product_name, last_date, total_reviews = obj.get_product_details()
+        top_pos_name, top_pos_review, top_neg_name, top_neg_review = obj.get_topPN()
+        tag_ratings = obj.get_tag_ratings()
+        reviews_count = obj.get_product_ratings()
 
     else:
-        table_name = baseURL.split("?")[0]
+        # scrape_with_crochet(baseURL=baseURL)
+        # time.sleep(15)
 
         data = [{"postDate": "Reviewed in India on 5 September 2019", "names": "Chris", "verifiedPurchase": "Verified Purchase", "reviewTitles": "Read if you're considering whether to buy it or not.", "nextPage": "/Infinity-Glide-500-Headphones-Equalizer/product-reviews/B07W5MYRF4?pageNumber=2&reviewerType=all_reviews", "starRating": "5.0 out of 5 stars", "helpful": "339 people found this helpful", "reviewerLink": "/gp/profile/amzn1.account.AHJ52IRMRGY3OSUGM7PBMXIOKB6Q", "reviewBody": "First of all Thank You Harman for launching an affordable headphone. Now talking about the sound and build quality, the sound quality is awesome if you compare it with other headphone in this price segment. The Bass, Mids and High are equally balance thus giving you a warm and soothing sound. Most Indians like bass so if you are a bass lover you should know that it won't give you over your head bass but you'll get a smooth thumping bass, you can feel the vibration in your ears without any distortion. You get a dual EQ too, normal mode and bass mode. The sound does feel different but not that much. Impressive bass tho with the right EQ settings.If you want a very loud headphone then you won't be satisfied, I was surprised when I could still listen some songs even when both my phone and headphone volume was at 100%. I secretly wish they increase the loudness a little bit more but I'm equally satisfied.Now about the noise cancellation considering it is in the ear headphone and not over the ear it is quite impressive.The call quality is okay. Nothing impressive or nothing bad. The other side can hear me clearly and I too can hear the caller voice clearly.The build quality is normal it is made entirely out of plastic. Plastic material are quite good. Doesn't look or feel fragile.I tried putting this headphone on for 3 hours straight and I must say it is quite comfortable, you get a soft cushions and you shouldn't get any problem in 2 or 2.5 hours of wearing but at 3 or 3.5 hours you might want to rest your ears for a while.Now at this price segment this is the best headphone available. The sound quality beats all the others headphones and yes even boAts headphones. Now about the build quality, there are other headphones better than this but hey, the sound is what important. and this headphone isn't fragile at all plus you get a one year warranty.Well, what are you waiting for, go ahead a buy it. You won't regret afterall it is by HARMAN.#thelongestreview?"},
         {"postDate": "Reviewed in India on 3 September 2019", "names": "Janaki", "verifiedPurchase": "Verified Purchase", "reviewTitles": "Truly a light weight headphone with an excellent battery life", "nextPage": "/Infinity-Glide-500-Headphones-Equalizer/product-reviews/B07W5MYRF4?pageNumber=2&reviewerType=all_reviews", "starRating": "4.0 out of 5 stars", "helpful": "147 people found this helpful", "reviewerLink": "/gp/profile/amzn1.account.AFSK6MQ5NLOC6HWYAUYEFTBSNJ7Q", "reviewBody": "Would I recommend this product to others? Definitely yes.Pros:Light WeightBattery LifeCons:No 3.5 mm cable, only blue toothI was in search of a light weight wireless headphone that I can use for long hours. I have a Bose now but I cannot use it for longer than 2-3 hours as its heavy and ears and head start aching.This Infinity one wins there. I have used it for 6-7 hours without any aches or pains.The ear pieces do press a little on the ears unlike over-the-ear ones. This one is on-the-ear. But it is not uncomfortable and gives a good fit.The sound quality is good too. Noise cancellation is not big. With low volumes, you can hear surrounding noise.Battery does last for a long long time. I used it daily for 4-5 hours for about 3 days with one charge. Am truly impressed with it.And it folds, hence carrying it around is convenient too.And I got it in the lightning deal at 1500 Rs. Worth the price. I would definitely recommend this to anyone who is looking for a non-expensive wireless headphones with a decent sound quality.I am giving it a 4 because I am not sure of its durability. If it lasts foe 6 months at least, then I will come back and update the rating to a 5."},
@@ -101,11 +84,11 @@ def scrape():
         today = date.today()
         last_date = today.strftime("%B %d, %Y")
 
-        product = add_product(baseURL, table_name, last_date, total_reviews)
-        top_positive, top_negative = add_reviewers_and_reviews(output_data, product)
-        add_product_ratings(product, reviews_count)
-        add_product_features(product, tag_ratings)
-        add_top_pos_and_neg(product, top_positive, top_negative)
+        obj = Put(baseURL, product_name, last_date, total_reviews)
+        top_positive, top_negative = obj.add_reviewers_and_reviews(output_data)
+        obj.add_product_ratings(reviews_count)
+        obj.add_product_features(tag_ratings)
+        obj.add_top_pos_and_neg(top_positive, top_negative)
 
         # store_data(conn, features_conn, review_conn, c, features_cur, review_cur, output_data, tag_ratings, reviews_count, table_name, top_positive, top_negative, total_reviews, product_name)
 
