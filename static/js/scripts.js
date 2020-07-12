@@ -23,24 +23,24 @@ data.forEach(movie => {
   card.setAttribute('class', 'card');
 
   const h1 = document.createElement('h1');
-  h1.textContent = movie.reviewTitles;
+  h1.textContent = movie.title;
 
   const p1 = document.createElement('p');
   p1.textContent = `${movie.names}`;
 
   const p2 = document.createElement('p');
   p2.setAttribute('class', 'show-read-more');
-  p2.textContent = `${movie.reviewBody}`;
+  p2.textContent = `${movie.review}`;
 
 
   const p3 = document.createElement('p');
-  p3.textContent = `${movie.starRating}` + " out of 5 Rating";
+  p3.textContent = `${movie.rating}` + " out of 5 Rating";
 
   const p4 = document.createElement('p');
-  p4.textContent = "On Page Number " + `${movie.Page}`;
+  p4.textContent = "On Page Number " + `${movie.page}`;
 
   const p5 = document.createElement('p');
-  var d = new Date(`${movie.postDate}`);
+  var d = new Date(`${movie.post_date}`);
   p5.textContent = d;
 
 
@@ -77,18 +77,18 @@ databattery.forEach(movie => {
   card.setAttribute('class', 'card');
 
   const h1 = document.createElement('h1');
-  h1.textContent = movie.reviewTitles;
+  h1.textContent = movie.title;
 
   const p1 = document.createElement('p');
   p1.textContent = `${movie.names}`;
 
   const p2 = document.createElement('p');
   p2.setAttribute('class', 'show-read-more');
-  p2.textContent = `${movie.reviewBody}`;
+  p2.textContent = `${movie.review}`;
 
 
   const p3 = document.createElement('p');
-  p3.textContent = `${movie.starRating}` + " out of 5 Rating";
+  p3.textContent = `${movie.rating}` + " out of 5 Rating";
 
 
   container.appendChild(card);
