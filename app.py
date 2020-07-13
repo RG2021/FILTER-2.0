@@ -19,7 +19,7 @@ migrate = Migrate(app, db, render_as_batch=True)
 manager = Manager(app)
 manager.add_command('db', MigrateCommand)
 
-from model import Product
+import model
 
 data = []
 crawl_runner = CrawlerRunner()
@@ -104,4 +104,4 @@ def _crawler_result(item, response, spider):
 
 
 if __name__== "__main__":
-    app.run(debug=True)
+    manager.run()
