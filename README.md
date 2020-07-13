@@ -17,6 +17,9 @@
 ## Flow Architecture / System Design
 ![Flow](../master/static/images/flow_design.png)
 
+## Database Schema
+![Schema](../master/static/images/db_schema.png)
+
 ## Result
 ### Home Page
 ![1](../master/static/images/out_1.jpg)
