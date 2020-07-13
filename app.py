@@ -13,6 +13,7 @@ naming_convention = {
 }
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///final.db'
+
 db = SQLAlchemy(app=app,metadata=MetaData(naming_convention=naming_convention))
 
 migrate = Migrate(app, db, render_as_batch=True)
@@ -45,8 +46,8 @@ def scrape():
 
     global baseURL
 
-    if(Product.query.filter_by(url=baseURL).first()):
-        obj = Get(baseURL)
+    if(model.Product.query.filter_by(url=baseURL).first()):
+        obj = model.Get(baseURL)
         output_data = obj.get_product_reviews_data()
         product_name, last_date, total_reviews = obj.get_product_details()
         top_pos_name, top_pos_review, top_neg_name, top_neg_review = obj.get_topPN()
@@ -82,7 +83,7 @@ def scrape():
         today = date.today()
         last_date = today.strftime("%B %d, %Y")
 
-        obj = Put(baseURL, product_name, last_date, total_reviews)
+        obj = model.Put(baseURL, product_name, last_date, total_reviews)
         top_positive, top_negative = obj.add_reviewers_and_reviews(output_data)
         obj.add_product_ratings(reviews_count)
         obj.add_product_features(tag_ratings)
