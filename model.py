@@ -23,7 +23,7 @@ class Reviewer(db.Model):
 	__tablename__ = 'reviewer'
 	id = db.Column('id', db.Integer, primary_key=True) #
 	name = db.Column('name', db.String) #
-	url = db.Column('url', db.String, uselist=False) #
+	url = db.Column('url', db.String, unique=True) #
 	reviews = db.relationship('Reviews', backref='reviewer') #
 
 

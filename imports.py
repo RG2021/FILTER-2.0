@@ -6,7 +6,6 @@ from sqlalchemy import MetaData
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from filter_reviews import get_data, data_preprocessing, data_cleaning, final_data_cleaning, categorizing_reviews, remove_stopwords, lemmatization, topics_list, review_count
-from database import check_review_table_exist, fetch_data, store_data
 from twisted.internet import reactor
 from scrapy import signals
 from scrapy.crawler import CrawlerRunner

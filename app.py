@@ -19,7 +19,7 @@ migrate = Migrate(app, db, render_as_batch=True)
 manager = Manager(app)
 manager.add_command('db', MigrateCommand)
 
-from model import *
+from model import Product
 
 data = []
 crawl_runner = CrawlerRunner()
@@ -35,7 +35,6 @@ def submit():
         s = request.form['url']
         global baseURL
         baseURL = s
-
         global data
         data = []
 
@@ -75,7 +74,6 @@ def scrape():
         top_positive = json.loads(top_positive)
         top_negative = json.loads(top_negative)
 
-
         top_pos_name = top_positive["names"]
         top_pos_review = top_positive["reviewBody"]
         top_neg_name = top_negative["names"]
@@ -89,8 +87,6 @@ def scrape():
         obj.add_product_ratings(reviews_count)
         obj.add_product_features(tag_ratings)
         obj.add_top_pos_and_neg(top_positive, top_negative)
-
-        # store_data(conn, features_conn, review_conn, c, features_cur, review_cur, output_data, tag_ratings, reviews_count, table_name, top_positive, top_negative, total_reviews, product_name)
 
 
     return render_template("newindex.html", reviews=output_data, product_name=product_name, total_reviews=total_reviews, reviews_count=json.dumps(reviews_count), tag_ratings =json.dumps(tag_ratings), top_pos_name=top_pos_name, top_pos_review=top_pos_review ,top_neg_name=top_neg_name, top_neg_review=top_neg_review, last_date=last_date)
