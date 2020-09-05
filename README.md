@@ -14,7 +14,7 @@
   * Feature Wise Rating for the product, like what are the views of people about a particular feature of     the product instead of the whole product.
   * Top 50 most Helpful and Authentic reviews eliminating the need for the customer to scroll down for       every review that best explains the product.
 
-## Flow Architecture
+## Flow Architecture (**Older Version**)
 ![Flow](../master/static/images/flow_design.png)
 
 ## Database Schema
